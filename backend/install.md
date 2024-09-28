@@ -8,3 +8,8 @@ npm i --save-dev @types/cookie-parser
 npm i cross-env
 
 randomkeygen.com
+
+npm i cloudinary
+npm i multer
+npm i --save-dev @types/multer
+

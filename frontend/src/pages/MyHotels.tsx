@@ -9,7 +9,7 @@ const MyHotels = () => {
     "fetchMyHotels",
     apiClient.fetchMyHotels,
     {
-      onError: () => {},
+      onError: () => { },
     }
   );
 

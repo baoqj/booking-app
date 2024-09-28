@@ -40,18 +40,25 @@ router.post(
       const imageFiles = req.files as Express.Multer.File[];
       const newHotel: HotelType = req.body;
 
+      // 1. Upload the images to Cloudinary
+
       const imageUrls = await uploadImages(imageFiles);
 
+      // 2. Add the image URLs to the new hotel object
+      //    If upload was successful, add the URLs to the hotel
       newHotel.imageUrls = imageUrls;
       newHotel.lastUpdated = new Date();
       newHotel.userId = req.userId;
 
+      // 3. Save the new hotel in our database
       const hotel = new Hotel(newHotel);
       await hotel.save();
 
+      // 4. Send the new hotel back to the client
+      //    return a 201 status code
       res.status(201).send(hotel);
     } catch (e) {
-      console.log(e);
+      console.log("Error creating hotel: ", e);
       res.status(500).json({ message: "Something went wrong" });
     }
   }
