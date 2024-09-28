@@ -13,3 +13,4 @@ npm i cloudinary
 npm i multer
 npm i --save-dev @types/multer
 
+npm i stripe

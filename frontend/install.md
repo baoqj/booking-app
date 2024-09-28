@@ -16,3 +16,9 @@ npm install react-router-dom react-hook-form react-query
 npm install react-icons react-datepicker
 
 npm install @stripe/stripe-js @stripe/react-stripe-js
+
+npm i react-icons
+
+npm i react-datepicker
+
+npm i --save @stripe/react-stripe-js @stripe/stripe-js

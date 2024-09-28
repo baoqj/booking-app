@@ -90,6 +90,12 @@ router.post(
   "/:hotelId/bookings/payment-intent",
   verifyToken,
   async (req: Request, res: Response) => {
+    // 1. totalCost = pricePerNight * numberOfNights
+    // 2. hotelId = req.params.hotelId
+    // 3. userId = req.userId
+    // 4. create payment intent with totalCost, currency, metadata
+    // 5. return paymentIntentId, clientSecret, totalCost
+
     const { numberOfNights } = req.body;
     const hotelId = req.params.hotelId;
 
@@ -102,7 +108,7 @@ router.post(
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: totalCost * 100,
-      currency: "gbp",
+      currency: "cad",
       metadata: {
         hotelId,
         userId: req.userId,
